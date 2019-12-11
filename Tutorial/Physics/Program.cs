@@ -10,7 +10,7 @@ using Engine.Physics.BEPUphysics.Materials;
 using Engine.Rendering;
 using OpenTK;
 
-namespace MyGame_Source
+namespace Physics
 {
 
     class Scene : AbstractScene
@@ -63,7 +63,7 @@ namespace MyGame_Source
                 1f);
 
             Entity groundShape = new Sphere(
-                Engine.Physics.BEPUutilities.Vector3.Zero,
+                Vector3.Zero,
                 20f);
             //Note: Not specifying the mass when creating makes the shape a static shape that is really cheap computatinally
 
