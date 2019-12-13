@@ -8,5 +8,5 @@ __kernel void kernel_red(__global uchar* imageData, float strength, int channelC
 	{
 		return;
 	}
-	imageData[idx] = (uchar)(255f*strength);
+	imageData[idx] = (uchar)(255*strength);
 }

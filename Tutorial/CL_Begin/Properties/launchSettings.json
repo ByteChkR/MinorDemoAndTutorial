@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "OpenCL": {
+    "CL_Begin": {
       "commandName": "Project",
       "workingDirectory": ".\\"
     }

@@ -3,6 +3,8 @@ using System.Drawing;
 using Engine.Core;
 using Engine.DataTypes;
 using Engine.IO;
+using Engine.OpenCL;
+using Engine.OpenCL.TypeEnums;
 using Engine.Physics;
 using Engine.Physics.BEPUphysics.Entities;
 using Engine.Physics.BEPUphysics.Entities.Prefabs;
@@ -17,6 +19,7 @@ namespace Physics
     {
         protected override void InitializeScene()
         {
+            
             BasicCamera bc =
                 new BasicCamera(Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(75), 16 / 9f, 0.1f, 1000f),
                     new Vector3(0, 5, 30)); //Creating a Basic Camera

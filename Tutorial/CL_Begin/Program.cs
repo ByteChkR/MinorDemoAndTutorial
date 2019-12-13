@@ -1,7 +1,8 @@
-﻿using System;
-using System.Drawing;
+﻿
+using System.Diagnostics;
 using Engine.Core;
 using Engine.DataTypes;
+using Engine.Debug;
 using Engine.IO;
 using Engine.OpenCL;
 using Engine.OpenCL.DotNetCore.Memory;
@@ -10,11 +11,33 @@ using Engine.OpenFL;
 using Engine.Rendering;
 using OpenTK;
 
-namespace OpenCL
+namespace CL_Begin
 {
 
     class Scene : AbstractScene
     {
+        private Texture GenerateMenuBackground()
+        {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            int texWidth = 128;
+            int texHeight = 128;
+            Interpreter i = new Interpreter(Clapi.MainThread, "assets/filter/game/grass.fl", DataTypes.Uchar1,
+                Clapi.CreateEmpty<byte>(Clapi.MainThread, texWidth * texHeight * 4, MemoryFlag.ReadWrite), texWidth,
+                texHeight, 1, 4, "assets/kernel/", true);
+
+            do
+            {
+                i.Step();
+            } while (!i.Terminated);
+
+            Texture tex = TextureLoader.ParameterToTexture(texWidth, texHeight);
+            TextureLoader.Update(tex, i.GetResult<byte>(), (int)tex.Width, (int)tex.Height);
+            Logger.Log("Time for Menu Background(ms): " + sw.ElapsedMilliseconds, DebugChannel.Log, 10);
+            sw.Stop();
+            return tex;
+        }
+
         protected override void InitializeScene()
         {
             Matrix4 proj = Matrix4.CreatePerspectiveFieldOfView(
@@ -34,7 +57,7 @@ namespace OpenCL
 
             MemoryBuffer imageBuffer = Clapi.CreateEmpty<byte>(Clapi.MainThread, imageSize, MemoryFlag.ReadWrite);
 
-            
+
 
             redKernel.SetBuffer("imageData", imageBuffer);
             redKernel.SetArg("strength", 0.5f);
@@ -43,7 +66,6 @@ namespace OpenCL
             Clapi.Run(Clapi.MainThread, redKernel, imageSize);
 
             Texture tex = TextureLoader.BytesToTexture(Clapi.ReadBuffer<byte>(Clapi.MainThread, imageBuffer, imageSize), 512, 512);
-
 
 
 
@@ -84,3 +106,4 @@ namespace OpenCL
     }
 
 }
+
