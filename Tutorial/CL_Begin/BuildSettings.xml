@@ -6,7 +6,7 @@
   <CreateGamePackage>true</CreateGamePackage>
   <EngineProject>../../Minor/Engine/Engine/Engine.csproj</EngineProject>
   <GamePackageFileList />
-  <MemoryFiles>*</MemoryFiles>
+  <MemoryFiles>*.cl</MemoryFiles>
   <OutputFolder>Build</OutputFolder>
   <PackSize>1024</PackSize>
   <Project>CL_Begin.csproj</Project>

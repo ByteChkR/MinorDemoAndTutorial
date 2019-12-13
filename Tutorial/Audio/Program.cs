@@ -61,6 +61,9 @@ namespace Audio
         static void Main(string[] args)
         {
             GameEngine ge = new GameEngine(EngineSettings.DefaultSettings);
+
+            ManifestReader.PrepareManifestFiles(true);
+            ManifestReader.PrepareManifestFiles(false);
             ge.Initialize();
             ge.InitializeScene<Scene>();
             ge.Run();

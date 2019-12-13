@@ -1,5 +1,7 @@
 ﻿
 using System.Diagnostics;
+using System.Reflection;
+using System.Threading;
 using Engine.Core;
 using Engine.DataTypes;
 using Engine.Debug;
@@ -16,28 +18,7 @@ namespace CL_Begin
 
     class Scene : AbstractScene
     {
-        private Texture GenerateMenuBackground()
-        {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-            int texWidth = 128;
-            int texHeight = 128;
-            Interpreter i = new Interpreter(Clapi.MainThread, "assets/filter/game/grass.fl", DataTypes.Uchar1,
-                Clapi.CreateEmpty<byte>(Clapi.MainThread, texWidth * texHeight * 4, MemoryFlag.ReadWrite), texWidth,
-                texHeight, 1, 4, "assets/kernel/", true);
-
-            do
-            {
-                i.Step();
-            } while (!i.Terminated);
-
-            Texture tex = TextureLoader.ParameterToTexture(texWidth, texHeight);
-            TextureLoader.Update(tex, i.GetResult<byte>(), (int)tex.Width, (int)tex.Height);
-            Logger.Log("Time for Menu Background(ms): " + sw.ElapsedMilliseconds, DebugChannel.Log, 10);
-            sw.Stop();
-            return tex;
-        }
-
+        
         protected override void InitializeScene()
         {
             Matrix4 proj = Matrix4.CreatePerspectiveFieldOfView(
@@ -50,15 +31,14 @@ namespace CL_Begin
             Add(bc); //Adding the BasicCamera(That is a gameobject under the hood) to the scene to receive events
             SetCamera(bc); //Sets the Camera as the "active" camera that the scene will be rendered from.
 
+
             int imageSize = 512 * 512 * 4;
             //Creating a Kernel Database that will load all the Kernels contained in the asset directory
-            KernelDatabase db = new KernelDatabase(Clapi.MainThread, "assets/test_kernel", DataTypes.Uchar1);
+            KernelDatabase db = new KernelDatabase(Clapi.MainThread, "assets/test_kernel/", DataTypes.Uchar1);
             db.TryGetClKernel("kernel_red", out CLKernel redKernel);
 
             MemoryBuffer imageBuffer = Clapi.CreateEmpty<byte>(Clapi.MainThread, imageSize, MemoryFlag.ReadWrite);
-
-
-
+            
             redKernel.SetBuffer("imageData", imageBuffer);
             redKernel.SetArg("strength", 0.5f);
             redKernel.SetArg("channelCount", 4);
@@ -66,7 +46,6 @@ namespace CL_Begin
             Clapi.Run(Clapi.MainThread, redKernel, imageSize);
 
             Texture tex = TextureLoader.BytesToTexture(Clapi.ReadBuffer<byte>(Clapi.MainThread, imageBuffer, imageSize), 512, 512);
-
 
 
 
@@ -99,6 +78,11 @@ namespace CL_Begin
         static void Main(string[] args)
         {
             GameEngine ge = new GameEngine(EngineSettings.DefaultSettings);
+
+            ManifestReader.RegisterAssembly(Assembly.GetExecutingAssembly()); //Register this assembly(where the files will be embedded in)
+            ManifestReader.PrepareManifestFiles(false); //First Read Assembly files
+            ManifestReader.PrepareManifestFiles(true); //Replace Any Loaded assembly files with files on the file system.
+
             ge.Initialize();
             ge.InitializeScene<Scene>();
             ge.Run();
