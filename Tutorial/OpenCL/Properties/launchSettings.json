@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "OpenCL": {
+      "commandName": "Project",
+      "workingDirectory": ".\\"
+    }
+  }
+}

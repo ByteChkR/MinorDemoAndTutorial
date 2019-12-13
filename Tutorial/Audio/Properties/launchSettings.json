@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Audio": {
+      "commandName": "Project",
+      "workingDirectory": "."
+    }
+  }
+}

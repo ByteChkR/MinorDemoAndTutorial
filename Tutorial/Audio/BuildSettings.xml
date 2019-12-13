@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<BuildSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AssetFolder>assets</AssetFolder>
+  <BuildFlags>PackOnly</BuildFlags>
+  <CreateEnginePackage>false</CreateEnginePackage>
+  <CreateGamePackage>true</CreateGamePackage>
+  <EngineProject>../../Minor/Engine/Engine/Engine.csproj</EngineProject>
+  <GamePackageFileList />
+  <MemoryFiles>*</MemoryFiles>
+  <OutputFolder>Build</OutputFolder>
+  <PackSize>1024</PackSize>
+  <Project>Audio.csproj</Project>
+  <UnpackFiles />
+</BuildSettings>
