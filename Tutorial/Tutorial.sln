@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Audio", "Audio\Audio.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AI", "AI\AI.csproj", "{8421E608-06FB-41B7-8E5E-6C00E00C2F0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CL_Begin", "CL_Begin\CL_Begin.csproj", "{A21C1C4C-1731-4CE4-A787-78BF69DBEF98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenCL_Begin", "OpenCL_Begin\OpenCL_Begin.csproj", "{A21C1C4C-1731-4CE4-A787-78BF69DBEF98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenFL_Begin", "OpenFL_Begin\OpenFL_Begin.csproj", "{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -197,6 +199,22 @@ Global
 		{A21C1C4C-1731-4CE4-A787-78BF69DBEF98}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A21C1C4C-1731-4CE4-A787-78BF69DBEF98}.TravisTest|Any CPU.ActiveCfg = Debug|Any CPU
 		{A21C1C4C-1731-4CE4-A787-78BF69DBEF98}.TravisTest|Any CPU.Build.0 = Debug|Any CPU
+		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.Debug_FullTrace|Any CPU.ActiveCfg = Debug|Any CPU
+		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.Debug_FullTrace|Any CPU.Build.0 = Debug|Any CPU
+		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.Debug_Trace|Any CPU.ActiveCfg = Debug|Any CPU
+		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.Debug_Trace|Any CPU.Build.0 = Debug|Any CPU
+		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.Release_CollectLogs|Any CPU.ActiveCfg = Release|Any CPU
+		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.Release_CollectLogs|Any CPU.Build.0 = Release|Any CPU
+		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.Release_Trace|Any CPU.ActiveCfg = Release|Any CPU
+		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.Release_Trace|Any CPU.Build.0 = Release|Any CPU
+		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.Release_TravisTest|Any CPU.ActiveCfg = Release|Any CPU
+		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.Release_TravisTest|Any CPU.Build.0 = Release|Any CPU
+		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.TravisTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.TravisTest|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

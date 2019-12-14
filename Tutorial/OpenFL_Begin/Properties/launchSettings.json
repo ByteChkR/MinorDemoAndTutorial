@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "OpenFL_Begin": {
+      "commandName": "Project",
+      "workingDirectory": ".\\"
+    }
+  }
+}

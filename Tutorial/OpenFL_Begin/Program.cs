@@ -1,7 +1,6 @@
-﻿
+﻿using System;
 using System.Diagnostics;
 using System.Reflection;
-using System.Threading;
 using Engine.Core;
 using Engine.DataTypes;
 using Engine.Debug;
@@ -10,15 +9,15 @@ using Engine.OpenCL;
 using Engine.OpenCL.DotNetCore.Memory;
 using Engine.OpenCL.TypeEnums;
 using Engine.OpenFL;
+using Engine.OpenFL.Runner;
 using Engine.Rendering;
 using OpenTK;
 
-namespace CL_Begin
+namespace OpenFL_Begin
 {
-
     class Scene : AbstractScene
     {
-        
+
         protected override void InitializeScene()
         {
             Matrix4 proj = Matrix4.CreatePerspectiveFieldOfView(
@@ -32,21 +31,36 @@ namespace CL_Begin
             SetCamera(bc); //Sets the Camera as the "active" camera that the scene will be rendered from.
 
 
-            int imageSize = 512 * 512 * 4;
-            //Creating a Kernel Database that will load all the Kernels contained in the asset directory
-            KernelDatabase db = new KernelDatabase(Clapi.MainThread, "assets/test_kernel/", DataTypes.Uchar1);
-            db.TryGetClKernel("kernel_red", out CLKernel redKernel);
 
-            MemoryBuffer imageBuffer = Clapi.CreateEmpty<byte>(Clapi.MainThread, imageSize, MemoryFlag.ReadWrite);
             
-            redKernel.SetBuffer("imageData", imageBuffer);
-            redKernel.SetArg("strength", 0.5f);
-            redKernel.SetArg("channelCount", 4);
+            int texWidth = 128; //Width of the input texture
+            int texHeight = 128; //Height of the input texture
+            MemoryBuffer buffer = //Creating the Input Buffer
+                Clapi.CreateEmpty<byte>(
+                    Clapi.MainThread, //We use the Main thread instance
+                    texWidth * texHeight * 4, //The image size in bytes
+                    MemoryFlag.ReadWrite); //We want to read and write to the texture
 
-            Clapi.Run(Clapi.MainThread, redKernel, imageSize);
+            Interpreter i = new Interpreter( //Creating an interpreter instance
+                Clapi.MainThread, //We use the main thread
+                "assets/filter/red.fl", //The file to execute
+                DataTypes.Uchar1, //The Data type of our input buffer
+                buffer, //The buffer
+                texWidth, //Width
+                texHeight, //Height
+                1, //Depth, for images always 1
+                4, //Channel count(BGRA)
+                "assets/kernel/", //Directory for all kernels
+                true); //the "brk" statement is ignored.
 
-            Texture tex = TextureLoader.BytesToTexture(Clapi.ReadBuffer<byte>(Clapi.MainThread, imageBuffer, imageSize), 512, 512);
+            do
+            {
+                i.Step(); //Step through the Instructions one by one until the script terminated.
+            } while (!i.Terminated);
 
+            
+            //Create a texture from the output.
+            Texture tex = TextureLoader.BytesToTexture(i.GetResult<byte>(), texWidth, texHeight);
 
 
             GameObject box = new GameObject(-Vector3.UnitZ * 4, "Box"); //Creating a new Empty GameObject
@@ -88,6 +102,4 @@ namespace CL_Begin
             ge.Run();
         }
     }
-
 }
-

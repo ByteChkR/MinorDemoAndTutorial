@@ -1,0 +1,3 @@
+Main: #Every FL script that will be executed needs a Main function that is serving as entry point.
+    setactive 2 #Activate channel 2 (BG[R]A)
+    setv 1 #Set the channel value to 1

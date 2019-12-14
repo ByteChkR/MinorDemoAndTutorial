@@ -1,6 +1,6 @@
 
 
-__kernel void kernel_red(__global uchar* imageData, float strength, int channelCount)
+__kernel void kernel_red(__global uchar* imageData, float strength, uchar channelCount)
 {
 	int idx = get_global_id(0);
 	int channel = (int)fmod((float)idx, (float)channelCount);
