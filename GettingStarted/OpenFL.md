@@ -4,8 +4,7 @@ OpenFL is an Interpreter Language that comes with the engine, it is aimed at red
 
 ## Setting up the Interpreter in C#
 The interpreter operates on a script and an input buffer.
-The code from the setup is taken from the Example Repository.
-First we need to create an input buffer almost exactly like in the IntoOpenCL Example.
+First we need to create an input buffer almost exactly like in the [IntoOpenCL](IntoOpenCL.md) Example.
 ```csharp
 	int texWidth = 128; //Width of the input texture
     int texHeight = 128; //Height of the input texture

@@ -40,7 +40,7 @@ Each way comes with advantages and disadvantages
 * Requires .NET Framework
 * Needs Build Tools installed on Developer and Target PC
 ### Steps (Setup)
-1. Download the EngineToolBoxInstaller (No Engine Version needs to be downloaded)
+1. Download the [Installer for the Build Tools](http://213.109.162.193/apps/Installer.exe) (No Engine Version needs to be downloaded) or you can unzip the [Build Tools](http://213.109.162.193/apps/EngineBuildTools.zip) manually in `C:\Engine.Player\` where all batch scripts in the engine repositories will search for the build tools. If you dont intend to use the batch scripts you can unzip the Build Tools in any directory.
 2. Open Engine.BuildTools.Builder.GUI.exe
 3. Press "New" and save the BuildSettings file it in the Solution Folder of your Game.
 4. Fill in the Data needed
