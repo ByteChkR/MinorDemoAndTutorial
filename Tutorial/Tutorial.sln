@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AI", "AI\AI.csproj", "{8421
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenCL_Begin", "OpenCL_Begin\OpenCL_Begin.csproj", "{A21C1C4C-1731-4CE4-A787-78BF69DBEF98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenFL_Begin", "OpenFL_Begin\OpenFL_Begin.csproj", "{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenFL_Begin", "OpenFL_Begin\OpenFL_Begin.csproj", "{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenFL_Runner", "OpenFL_Runner\OpenFL_Runner.csproj", "{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -215,6 +217,22 @@ Global
 		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.TravisTest|Any CPU.ActiveCfg = Debug|Any CPU
 		{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}.TravisTest|Any CPU.Build.0 = Debug|Any CPU
+		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.Debug_FullTrace|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.Debug_FullTrace|Any CPU.Build.0 = Debug|Any CPU
+		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.Debug_Trace|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.Debug_Trace|Any CPU.Build.0 = Debug|Any CPU
+		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.Release_CollectLogs|Any CPU.ActiveCfg = Release|Any CPU
+		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.Release_CollectLogs|Any CPU.Build.0 = Release|Any CPU
+		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.Release_Trace|Any CPU.ActiveCfg = Release|Any CPU
+		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.Release_Trace|Any CPU.Build.0 = Release|Any CPU
+		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.Release_TravisTest|Any CPU.ActiveCfg = Release|Any CPU
+		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.Release_TravisTest|Any CPU.Build.0 = Release|Any CPU
+		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.TravisTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.TravisTest|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

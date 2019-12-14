@@ -1,0 +1,5 @@
+Main: #Every FL script that will be executed needs a Main function that is serving as entry point.
+    setactive 1 2 #Resetting all channels except blue and alpha
+    setv 0 #Set to value 0
+    setactive 0 #Activate channel 0 ([B]GRA)
+    setv 1 #Set the channel value to 1
