@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ExampleRunner": {
+      "commandName": "Project",
+      "workingDirectory": ".\\"
+    }
+  }
+}

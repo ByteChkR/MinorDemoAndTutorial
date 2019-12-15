@@ -2,6 +2,7 @@
 using System.Drawing;
 using Engine.Core;
 using Engine.DataTypes;
+using Engine.Debug;
 using Engine.IO;
 using Engine.Physics;
 using Engine.Physics.BEPUphysics.Entities;
@@ -13,12 +14,13 @@ using OpenTK;
 namespace RenderTargets
 {
     
-    class Scene : AbstractScene
+    class RenderTargetsScene : AbstractScene
     {
         private RenderTarget splitCam;
         protected override void InitializeScene()
         {
 
+            Add(DebugConsoleComponent.CreateConsole());
             BasicCamera inPicCam =
                 new BasicCamera(
                     Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(75f),
@@ -146,7 +148,7 @@ namespace RenderTargets
         {
             GameEngine ge = new GameEngine(EngineSettings.DefaultSettings);
             ge.Initialize();
-            ge.InitializeScene<Scene>();
+            ge.InitializeScene<RenderTargetsScene>();
             ge.Run();
         }
     }

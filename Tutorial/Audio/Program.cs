@@ -3,16 +3,19 @@ using System.Drawing;
 using Engine.Audio;
 using Engine.Core;
 using Engine.DataTypes;
+using Engine.Debug;
 using Engine.IO;
 using Engine.Rendering;
 using OpenTK;
 
 namespace Audio
 {
-    class Scene : AbstractScene
+    class AudioScene : AbstractScene
     {
         protected override void InitializeScene()
         {
+
+            Add(DebugConsoleComponent.CreateConsole());
             Matrix4 proj = Matrix4.CreatePerspectiveFieldOfView(
                 MathHelper.DegreesToRadians(75f),  //Field of View Vertical
                 16f / 9f, //Aspect Ratio
@@ -65,7 +68,7 @@ namespace Audio
             ManifestReader.PrepareManifestFiles(true);
             ManifestReader.PrepareManifestFiles(false);
             ge.Initialize();
-            ge.InitializeScene<Scene>();
+            ge.InitializeScene<AudioScene>();
             ge.Run();
         }
     }

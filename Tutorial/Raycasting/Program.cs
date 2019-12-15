@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using Engine.Core;
 using Engine.DataTypes;
+using Engine.Debug;
 using Engine.IO;
 using Engine.Physics;
 using Engine.Physics.BEPUphysics.Entities;
@@ -18,10 +19,11 @@ using Vector3 = OpenTK.Vector3;
 namespace Raycasting
 {
 
-    class Scene : AbstractScene
+    class RaycastingScene : AbstractScene
     {
         protected override void InitializeScene()
         {
+            Add(DebugConsoleComponent.CreateConsole());
             BasicCamera bc =
                 new BasicCamera(Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(75), 16 / 9f, 0.1f, 1000f),
                     new Vector3(0, 5, 7)); //Creating a Basic Camera
@@ -161,7 +163,7 @@ namespace Raycasting
         {
             GameEngine ge = new GameEngine(EngineSettings.DefaultSettings);
             ge.Initialize();
-            ge.InitializeScene<Scene>();
+            ge.InitializeScene<RaycastingScene>();
             ge.Run();
         }
     }

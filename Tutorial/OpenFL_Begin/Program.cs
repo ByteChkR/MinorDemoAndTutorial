@@ -15,11 +15,12 @@ using OpenTK;
 
 namespace OpenFL_Begin
 {
-    class Scene : AbstractScene
+    class FLBeginScene : AbstractScene
     {
 
         protected override void InitializeScene()
         {
+            Add(DebugConsoleComponent.CreateConsole());
             Matrix4 proj = Matrix4.CreatePerspectiveFieldOfView(
                 MathHelper.DegreesToRadians(75f),  //Field of View Vertical
                 16f / 9f, //Aspect Ratio
@@ -98,7 +99,7 @@ namespace OpenFL_Begin
             ManifestReader.PrepareManifestFiles(true); //Replace Any Loaded assembly files with files on the file system.
 
             ge.Initialize();
-            ge.InitializeScene<Scene>();
+            ge.InitializeScene<FLBeginScene>();
             ge.Run();
         }
     }

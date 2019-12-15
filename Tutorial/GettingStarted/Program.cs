@@ -2,6 +2,7 @@
 using System.Drawing;
 using Engine.Core;
 using Engine.DataTypes;
+using Engine.Debug;
 using Engine.IO;
 using Engine.Physics;
 using Engine.Physics.BEPUphysics.Entities;
@@ -12,10 +13,11 @@ using OpenTK;
 
 namespace GettingStarted
 {
-    class Scene : AbstractScene
+    class GettingStartedScene : AbstractScene
     {
         protected override void InitializeScene()
         {
+            Add(DebugConsoleComponent.CreateConsole());
             Matrix4 proj = Matrix4.CreatePerspectiveFieldOfView(
                 MathHelper.DegreesToRadians(75f),  //Field of View Vertical
                 16f / 9f, //Aspect Ratio
@@ -52,7 +54,7 @@ namespace GettingStarted
         {
             GameEngine ge = new GameEngine(EngineSettings.DefaultSettings);
             ge.Initialize();
-            ge.InitializeScene<Scene>();
+            ge.InitializeScene<GettingStartedScene>();
             ge.Run();
         }
     }

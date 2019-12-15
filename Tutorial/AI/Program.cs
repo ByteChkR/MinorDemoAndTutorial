@@ -5,6 +5,7 @@ using Engine.AI;
 using Engine.Audio;
 using Engine.Core;
 using Engine.DataTypes;
+using Engine.Debug;
 using Engine.IO;
 using Engine.Physics;
 using Engine.Physics.BEPUphysics.Entities.Prefabs;
@@ -18,10 +19,12 @@ using Vector3 = OpenTK.Vector3;
 
 namespace AI
 {
-    class Scene : AbstractScene
+    class AIScene : AbstractScene
     {
         protected override void InitializeScene()
         {
+            Add(DebugConsoleComponent.CreateConsole());
+
             LayerManager.RegisterLayer("raycast", new Layer(1, 1));
 
             Matrix4 proj = Matrix4.CreatePerspectiveFieldOfView(
@@ -271,7 +274,7 @@ namespace AI
         {
             GameEngine ge = new GameEngine(EngineSettings.DefaultSettings);
             ge.Initialize();
-            ge.InitializeScene<Scene>();
+            ge.InitializeScene<AIScene>();
             ge.Run();
         }
     }

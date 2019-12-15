@@ -16,11 +16,12 @@ using OpenTK.Input;
 
 namespace OpenFL_Runner
 {
-    class Scene : AbstractScene
+    class CLRunnerScene : AbstractScene
     {
 
         protected override void InitializeScene()
         {
+            Add(DebugConsoleComponent.CreateConsole());
             Texture tex = TextureLoader.ParameterToTexture(128, 128); //Generating 2 Textures for our 2 boxes
             Texture tex2 = TextureLoader.ParameterToTexture(128, 128);
 
@@ -138,7 +139,7 @@ namespace OpenFL_Runner
             ManifestReader.PrepareManifestFiles(true); //Replace Any Loaded assembly files with files on the file system.
 
             ge.Initialize();
-            ge.InitializeScene<Scene>();
+            ge.InitializeScene<CLRunnerScene>();
             ge.Run();
         }
     }

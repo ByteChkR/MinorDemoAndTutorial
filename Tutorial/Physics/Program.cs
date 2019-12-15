@@ -2,6 +2,7 @@
 using System.Drawing;
 using Engine.Core;
 using Engine.DataTypes;
+using Engine.Debug;
 using Engine.IO;
 using Engine.OpenCL;
 using Engine.OpenCL.TypeEnums;
@@ -15,11 +16,12 @@ using OpenTK;
 namespace Physics
 {
 
-    class Scene : AbstractScene
+    class PhysicsScene : AbstractScene
     {
         protected override void InitializeScene()
         {
-            
+
+            Add(DebugConsoleComponent.CreateConsole());
             BasicCamera bc =
                 new BasicCamera(Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(75), 16 / 9f, 0.1f, 1000f),
                     new Vector3(0, 5, 30)); //Creating a Basic Camera
@@ -127,7 +129,7 @@ namespace Physics
         {
             GameEngine ge = new GameEngine(EngineSettings.DefaultSettings);
             ge.Initialize();
-            ge.InitializeScene<Scene>();
+            ge.InitializeScene<PhysicsScene>();
             ge.Run();
         }
     }

@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenCL_Begin", "OpenCL_Begi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenFL_Begin", "OpenFL_Begin\OpenFL_Begin.csproj", "{70F2EDA4-E3EA-4F2D-AF1B-7C8F698A944D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenFL_Runner", "OpenFL_Runner\OpenFL_Runner.csproj", "{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenFL_Runner", "OpenFL_Runner\OpenFL_Runner.csproj", "{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleRunner", "ExampleRunner\ExampleRunner.csproj", "{E02B0B25-97BC-46D6-B19A-F1C154D05EBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -233,6 +235,22 @@ Global
 		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.TravisTest|Any CPU.ActiveCfg = Debug|Any CPU
 		{BF93E53E-55FE-4BD1-947C-E28BEFB3395F}.TravisTest|Any CPU.Build.0 = Debug|Any CPU
+		{E02B0B25-97BC-46D6-B19A-F1C154D05EBF}.Debug_FullTrace|Any CPU.ActiveCfg = Debug|Any CPU
+		{E02B0B25-97BC-46D6-B19A-F1C154D05EBF}.Debug_FullTrace|Any CPU.Build.0 = Debug|Any CPU
+		{E02B0B25-97BC-46D6-B19A-F1C154D05EBF}.Debug_Trace|Any CPU.ActiveCfg = Debug|Any CPU
+		{E02B0B25-97BC-46D6-B19A-F1C154D05EBF}.Debug_Trace|Any CPU.Build.0 = Debug|Any CPU
+		{E02B0B25-97BC-46D6-B19A-F1C154D05EBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E02B0B25-97BC-46D6-B19A-F1C154D05EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E02B0B25-97BC-46D6-B19A-F1C154D05EBF}.Release_CollectLogs|Any CPU.ActiveCfg = Release|Any CPU
+		{E02B0B25-97BC-46D6-B19A-F1C154D05EBF}.Release_CollectLogs|Any CPU.Build.0 = Release|Any CPU
+		{E02B0B25-97BC-46D6-B19A-F1C154D05EBF}.Release_Trace|Any CPU.ActiveCfg = Release|Any CPU
+		{E02B0B25-97BC-46D6-B19A-F1C154D05EBF}.Release_Trace|Any CPU.Build.0 = Release|Any CPU
+		{E02B0B25-97BC-46D6-B19A-F1C154D05EBF}.Release_TravisTest|Any CPU.ActiveCfg = Release|Any CPU
+		{E02B0B25-97BC-46D6-B19A-F1C154D05EBF}.Release_TravisTest|Any CPU.Build.0 = Release|Any CPU
+		{E02B0B25-97BC-46D6-B19A-F1C154D05EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E02B0B25-97BC-46D6-B19A-F1C154D05EBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E02B0B25-97BC-46D6-B19A-F1C154D05EBF}.TravisTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{E02B0B25-97BC-46D6-B19A-F1C154D05EBF}.TravisTest|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

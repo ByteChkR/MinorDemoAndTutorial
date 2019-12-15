@@ -16,11 +16,12 @@ using OpenTK;
 namespace CL_Begin
 {
 
-    class Scene : AbstractScene
+    class CLBeginScene : AbstractScene
     {
         
         protected override void InitializeScene()
         {
+            Add(DebugConsoleComponent.CreateConsole());
             Matrix4 proj = Matrix4.CreatePerspectiveFieldOfView(
                 MathHelper.DegreesToRadians(75f),  //Field of View Vertical
                 16f / 9f, //Aspect Ratio
@@ -102,7 +103,7 @@ namespace CL_Begin
             ManifestReader.PrepareManifestFiles(true); //Replace Any Loaded assembly files with files on the file system.
 
             ge.Initialize();
-            ge.InitializeScene<Scene>();
+            ge.InitializeScene<CLBeginScene>();
             ge.Run();
         }
     }
