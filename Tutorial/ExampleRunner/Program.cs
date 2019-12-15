@@ -37,8 +37,8 @@ namespace ExampleRunner
     {
         static void Main(string[] args)
         {
-            if (!Directory.Exists("./examples")) Directory.CreateDirectory("./examples");
-            string[] files = Directory.GetFiles("./examples", "*.dll", SearchOption.AllDirectories);
+            if (!Directory.Exists("./assets")) Directory.CreateDirectory("./assets");
+            string[] files = Directory.GetFiles("./assets", "*.dll", SearchOption.AllDirectories);
             List<Type> scenes = new List<Type>();
             Type target = typeof(AbstractScene);
             for (int i = 0; i < files.Length; i++)
