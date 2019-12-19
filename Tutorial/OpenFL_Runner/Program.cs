@@ -16,7 +16,7 @@ using OpenTK.Input;
 
 namespace OpenFL_Runner
 {
-    class CLRunnerScene : AbstractScene
+    class FLRunnerScene : AbstractScene
     {
 
         protected override void InitializeScene()
@@ -139,7 +139,7 @@ namespace OpenFL_Runner
             ManifestReader.PrepareManifestFiles(true); //Replace Any Loaded assembly files with files on the file system.
 
             ge.Initialize();
-            ge.InitializeScene<CLRunnerScene>();
+            ge.InitializeScene<FLRunnerScene>();
             ge.Run();
         }
     }
