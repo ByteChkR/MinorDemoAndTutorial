@@ -12,7 +12,7 @@ call build.bat Raycasting
 call build.bat RenderTargets
 
 echo Building Example Runner
-ebuild --xml ExampleRunner\BuildSettings.xml
+call ebuild --xml ExampleRunner\BuildSettings.xml
 move /Y ExampleRunner\Build\ExampleRunner.game ExampleRunner.game
 @rd /S /Q ExampleRunner\Build
 
