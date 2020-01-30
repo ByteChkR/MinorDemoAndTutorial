@@ -9,3 +9,4 @@ xcopy ..\ExampleRunner\assets .\StandaloneBuild\assets /I /Y
 
 echo Packing Game File
 call ebuild --create-package .\StandaloneBuild ExampleRunner .\ExampleRunner_Standalone.game True False --packager-version v2 --packer-override-engine-version standalone
+pause
